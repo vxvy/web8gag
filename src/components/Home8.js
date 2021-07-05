@@ -5,12 +5,13 @@ import { useState } from 'react';
 
 function Home8({url}){
 
+    const [publicaciones, setPublicaciones] = useState([])
     const fpublis = useFetch(url+'posts')
-    const [publicaciones, setPublicaciones] = useState(fpublis || '')
-    
+    // setPublicaciones(fpublis || [])
+
     return(
         <div>
-            <p>{publicaciones ? JSON.stringify(publicaciones) : 'Deberían verse las publicaciones'}</p>
+            {fpublis ? fpublis.map( p => <Publictn8 p={p} />) : 'Deberían verse las publicaciones' }
         </div>
     );
     // if(publicaciones){
