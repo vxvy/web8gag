@@ -1,0 +1,6 @@
+export const r_home = '/'
+export const r_login = '/login'
+export const r_signup = '/singup'
+export const r_publics = '/posts'
+export const r_public_id = '/posts/:id'
+export const r_post_com = '/posts/:id/comments'
