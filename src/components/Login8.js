@@ -1,7 +1,8 @@
 import './css/Login8.css'
 import { useState } from "react"
 import { useUser } from "../hooks/UserContext"
-
+import { r_home } from '../routes'
+import { useHistory } from 'react-router'
 
 function Login8({url}) {
     const [username, setUsername] = useState('')
@@ -9,6 +10,7 @@ function Login8({url}) {
     const [error, setError] = useState(false)
     const [loading, setLoading] = useState(false)
     const [user, setUser] = useUser()
+    const history = useHistory()
 
     const handleSubmit = async e => {
         e.preventDefault()
@@ -19,14 +21,14 @@ function Login8({url}) {
             method: 'POST',
             body: JSON.stringify({ username, password }),
             headers: {
-                'Content-Type': 'application/json',
-                // 'Authorization': 'Bearer ' + user.token
+            'Content-Type': 'application/json'
             }
         })
         const data = await res.json()
         setLoading(false)
         if (res.ok) {
             setUser(data)
+            history.push(r_home)
         } else {
             setError(data.error)
         }
