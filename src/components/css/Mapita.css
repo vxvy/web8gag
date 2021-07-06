@@ -1,0 +1,10 @@
+.leaflet-container { 
+    height: 90vh;
+    width: 100%;
+    background-color: aqua;
+}
+
+.leaflet-container img{
+    height: 100px;
+    width: 100px;
+}

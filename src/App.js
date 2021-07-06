@@ -7,12 +7,16 @@ import Login8 from './components/Login8';
 import PostPubctn8 from './components/PostPubctn8';
 import PubctnPage8 from './components/PubctnPage8';
 import Comment8 from './components/Comment8';
+import Mapita from './components/Mapita';
 import { Route, Switch } from 'react-router-dom';
 import { r_home, r_login, r_publics, r_signup } from './routes';
 import { r_existent_pub } from './routes';
 import { r_public_id } from './routes';
 import { r_post_com } from './routes';
 import { useState } from 'react';
+
+// require cors = require('cors')
+// app.use(cors())
 
 function App() {
 
@@ -25,12 +29,15 @@ function App() {
       <Nav8 />
       <main>
         <Switch>
-        <Route path={r_public_id(currentPost)} exact>
-                <PubctnPage8 url={url} currentPost={currentPost}/>
-            </Route>
-            <Route path={r_post_com(currentPost)} exact>
+          {/* <Route path={r_public_id(currentPost)} exact>
+            <PubctnPage8 url={url} currentPost={currentPost}/>
+          </Route>
+          <Route path={r_post_com(currentPost)} exact>
                 <Comment8 url={url} currentPost={currentPost}/>
-            </Route>
+          </Route> */}
+          <Route path={'/mapita'} exact>
+            <Mapita />
+          </Route>
           <Route path={r_existent_pub} exact>
             <PubctnPage8 url={url} currentPost={currentPost}/>
           </Route>

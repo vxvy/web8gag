@@ -28,8 +28,9 @@ const PostPubctn8 = ({url, currentPost, setCurrentPost}) => {
             const data = await response.json()
             if(data && response.ok){
                 // console.log(data);
+                // TODO FAIL
                 setCurrentPost(data.id)
-                history.push(r_public_id(currentPost))
+                history.push(`posts/${data.id}`)
                 //duda: cómo obtener la id de la publicación que acabo de hacer en el history
                 //probablemente debería crea un state
             }

@@ -7,9 +7,17 @@ function PubctnPage8({url, currentPost}) {
     
     const fpublis = useFetch(url+'posts')
 
+    if (fpublis) {
+        return(
+            <div>
+                <p>Current post: {currentPost}</p>
+                {fpublis && fpublis.filter( p => p.id === currentPost && <Publictn8  url={url} p={p}></Publictn8> )}
+            </div>
+        );
+    }
     return(
         <div>
-            {fpublis && fpublis.filter( p => p.id === <Publictn8  url={url} p={currentPost}></Publictn8> )}
+            <p>No carga</p>
         </div>
     );
 }
