@@ -8,12 +8,14 @@ import PostPubctn8 from './components/PostPubctn8';
 import PubctnPage8 from './components/PubctnPage8';
 import Comment8 from './components/Comment8';
 import Mapita from './components/Mapita';
+import Formulario from './components/Formulario';
 import { Route, Switch } from 'react-router-dom';
 import { r_home, r_login, r_publics, r_signup } from './routes';
 import { r_existent_pub } from './routes';
 import { r_public_id } from './routes';
 import { r_post_com } from './routes';
 import { useState } from 'react';
+import { Helmet } from 'react-helmet';
 
 // require cors = require('cors')
 // app.use(cors())
@@ -25,6 +27,9 @@ function App() {
 
   return (
     <div className="App">
+      <Helmet>
+        <title>8gag</title>
+      </Helmet>
       <Header8 />
       <Nav8 />
       <main>
@@ -35,6 +40,9 @@ function App() {
           <Route path={r_post_com(currentPost)} exact>
                 <Comment8 url={url} currentPost={currentPost}/>
           </Route> */}
+          <Route path={'/formulario'} exact>
+            <Formulario />
+          </Route>
           <Route path={'/mapita'} exact>
             <Mapita />
           </Route>
